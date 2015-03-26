@@ -1,0 +1,120 @@
+{% extends '::backend.html.twig' %}
+
+{% block title %}{{ 'Tabla de Categorías'}} - {{ 'Detalle'}}{% endblock %} 
+
+{% block titulo_page %}{{ 'Categorías'}}{% endblock %}          
+
+{% block descrip_opcional %}{{ 'Tabla de registro de categorías'}}.{% endblock %}
+
+{% block level %}{{ 'Tablas Principales'}}{% endblock %}
+
+{% block here %}{{ 'Categorías'}}{% endblock %}
+
+{% block active_inicio %}{% endblock %}
+{% block active_tabla_principal %}class="active treeview"{% endblock %}
+{% block active_tabla_categoria %}class="active"{% endblock %}
+
+{% block contenido %}
+<div class="row">   
+    <!-- left column -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <!-- general form elements -->
+        <div class="box box-primary col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            {% for flashMessage in app.session.flashbag.get('info') %}
+                <div class="alert alert-success">
+                    <span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}
+                </div>
+            {% endfor %}
+            <div class="box-header">
+                <h3 class="box-title">{{ 'Detalle'}}</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+                <div class="box-body">
+                    <div class="form-group">
+                      <label>{{ 'Id'}}</label>
+                      <input class="form-control" value="{{ entity.id }}" disabled>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label>{{ 'Descripción'}}</label>
+                      <input class="form-control" value="{{ entity.descripcion }}" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label>{{ 'Estado'}}:</label>
+                        {% if entity.activo %}  
+                            <span class="label label-success">{{ 'Activo'}}</span>
+                        {% else %}                 
+                            <span class="label label-danger">{{ 'Inactivo'}}</span>
+                        {% endif %}   
+                    </div>
+
+                    <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                      <label>{{ 'Fch.Creado'}}</label>
+                      <input class="form-control" value="{{ entity.fchCreate|date('d-m-Y H:i') }}" disabled>
+                    </div>
+
+                    <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                      <label>{{ 'Usr.Creado'}}</label>
+                      <input class="form-control" value="{{ entity.usrCreate }}" disabled>
+                    </div>
+
+                    <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                      <label>{{ 'Fch.Ult.Act'}}</label>
+                      <input class="form-control" value="{{ entity.fchUpdate|date('d-m-Y H:i') }}" disabled>
+                    </div>
+
+                    <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                      <label>{{ 'Usr.Ult.Act'}}</label>
+                      <input class="form-control" value="{{ entity.usrUpdate }}" disabled>
+                    </div>
+                </div><!-- /.box-body -->
+
+                <div class="box-footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                    <div class="form-group col-xs-4 col-sm-3 col-md-4 col-lg-3">
+                        <a href="{{ path('categoria') }}" class="btn btn-primary btn-md" title="{{ 'Listado'}}"><span class="glyphicon glyphicon-th-list"></span> {{ 'Listado'}}</a>
+                    </div>
+
+                    <div class="form-group col-xs-4 col-sm-3 col-md-4 col-lg-3">
+                        <a href="{{ path('categoria_edit', { 'id': entity.id }) }}" class="btn btn-warning btn-md" title="{{ 'Editar'}}"><span class="glyphicon glyphicon-edit"></span> {{ 'Editar'}}</a>
+                    </div>
+
+                    <div class="form-group col-xs-4 col-sm-3 col-md-4 col-lg-3">
+                        <button type="reset" class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal">
+                            <span class="glyphicon glyphicon-remove"></span> {{ 'Eliminar'}}
+                        </button>      
+                    </div>
+
+                </div>
+            </form>
+        </div><!-- /.box -->
+    </div>  
+</div>  
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-list-alt text-info"></span> {{ 'Tabla de Categorías'}} - <span class="glyphicon glyphicon-remove"></span>{{ 'Eliminar'}}</h4>
+      </div>
+      <div class="modal-body">
+        <p><label>{{ 'Id' }}:</label> {{ entity.id }}</p>
+        <p><label>{{ 'Categoría' }}:</label> {{ entity.descripcion }}</p>        
+      </div>
+      <div class="modal-footer">
+        {{ form_start(delete_form) }}
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'Cerrar' }}</button>     
+        {{ form_widget(delete_form.submit, {'attr': {'class': 'btn btn-danger'}}) }}
+        {{ form_end(delete_form) }}              
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} 
+
+
+

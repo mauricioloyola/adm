@@ -1,0 +1,31 @@
+App\Bundle\BackendBundle\Entity\Categoria:
+    type: entity
+    table: null
+    repositoryClass: App\Bundle\BackendBundle\Entity\CategoriaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        descripcion:
+            type: string
+            length: '50'
+        activo:
+            type: boolean
+        fchCreate:
+            type: datetime
+            column: fch_create
+        usrCreate:
+            type: integer
+            column: usr_create
+        fchUpdate:
+            type: datetime
+            column: fch_update
+            nullable: true    
+        usrUpdate:
+            type: integer
+            column: usr_update
+            nullable: true    
+    lifecycleCallbacks: {  }
