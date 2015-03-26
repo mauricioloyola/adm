@@ -1,1 +1,17 @@
-{ parameters: { database_driver: pdo_mysql, database_host: sg111.servergrove.com, database_port: null, database_name: movibidi_lograrme, database_user: movib_lograrme, database_password: 106ram3adm1n, mailer_transport: smtp, mailer_host: smtp.lograrme.com, mailer_user: no-reply@lograrme.com, mailer_password: n0791y, locale: es, secret: c39afbbf97f1ef9cd05fff8dea55b43d8556e0ae, debug_toolbar: true, debug_redirects: false, use_assetic_controller: true, database_path: null } }
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: sg111.servergrove.com
+    database_port: null
+    database_name: movibidi_lograrme
+    database_user: movib_lograrme
+    database_password: 106ram3adm1n
+    mailer_transport: smtp
+    mailer_host: smtp.lograrme.com
+    mailer_user: no-reply@lograrme.com
+    mailer_password: n0791y
+    locale: es
+    secret: c39afbbf97f1ef9cd05fff8dea55b43d8556e0ae
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true

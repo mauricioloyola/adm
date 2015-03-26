@@ -653,7 +653,7 @@ class appDevDebugProjectContainer extends Container
         $b = new \Doctrine\DBAL\Configuration();
         $b->setSQLLogger($a);
 
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => NULL, 'dbname' => 'movibidi_lograrme', 'user' => 'movib_lograrme', 'password' => '106ram3adm1n', 'charset' => 'UTF8', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => 'sg111.servergrove.com', 'port' => NULL, 'dbname' => 'movibidi_lograrme', 'user' => 'movib_lograrme', 'password' => '106ram3adm1n', 'charset' => 'UTF8', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
     }
 
     /**
@@ -2429,13 +2429,13 @@ class appDevDebugProjectContainer extends Container
     protected function getSwiftmailer_Mailer_Default_Transport_RealService()
     {
         $a = new \Swift_Transport_Esmtp_AuthHandler(array(0 => new \Swift_Transport_Esmtp_Auth_CramMd5Authenticator(), 1 => new \Swift_Transport_Esmtp_Auth_LoginAuthenticator(), 2 => new \Swift_Transport_Esmtp_Auth_PlainAuthenticator()));
-        $a->setUsername(NULL);
-        $a->setPassword(NULL);
+        $a->setUsername('no-reply@lograrme.com');
+        $a->setPassword('n0791y');
         $a->setAuthMode(NULL);
 
         $this->services['swiftmailer.mailer.default.transport.real'] = $instance = new \Swift_Transport_EsmtpTransport(new \Swift_Transport_StreamBuffer(new \Swift_StreamFilters_StringReplacementFilterFactory()), array(0 => $a), $this->get('swiftmailer.mailer.default.transport.eventdispatcher'));
 
-        $instance->setHost('127.0.0.1');
+        $instance->setHost('smtp.lograrme.com');
         $instance->setPort(25);
         $instance->setEncryption(NULL);
         $instance->setTimeout(30);
@@ -3634,15 +3634,15 @@ class appDevDebugProjectContainer extends Container
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appDevDebugProjectContainer',
             'database_driver' => 'pdo_mysql',
-            'database_host' => '127.0.0.1',
+            'database_host' => 'sg111.servergrove.com',
             'database_port' => NULL,
             'database_name' => 'movibidi_lograrme',
             'database_user' => 'movib_lograrme',
             'database_password' => '106ram3adm1n',
             'mailer_transport' => 'smtp',
-            'mailer_host' => '127.0.0.1',
-            'mailer_user' => NULL,
-            'mailer_password' => NULL,
+            'mailer_host' => 'smtp.lograrme.com',
+            'mailer_user' => 'no-reply@lograrme.com',
+            'mailer_password' => 'n0791y',
             'locale' => 'es',
             'secret' => 'c39afbbf97f1ef9cd05fff8dea55b43d8556e0ae',
             'debug_toolbar' => true,
@@ -4021,9 +4021,9 @@ class appDevDebugProjectContainer extends Container
             'swiftmailer.mailer.default.delivery.enabled' => true,
             'swiftmailer.mailer.default.transport.smtp.encryption' => NULL,
             'swiftmailer.mailer.default.transport.smtp.port' => 25,
-            'swiftmailer.mailer.default.transport.smtp.host' => '127.0.0.1',
-            'swiftmailer.mailer.default.transport.smtp.username' => NULL,
-            'swiftmailer.mailer.default.transport.smtp.password' => NULL,
+            'swiftmailer.mailer.default.transport.smtp.host' => 'smtp.lograrme.com',
+            'swiftmailer.mailer.default.transport.smtp.username' => 'no-reply@lograrme.com',
+            'swiftmailer.mailer.default.transport.smtp.password' => 'n0791y',
             'swiftmailer.mailer.default.transport.smtp.auth_mode' => NULL,
             'swiftmailer.mailer.default.transport.smtp.timeout' => 30,
             'swiftmailer.mailer.default.transport.smtp.source_ip' => NULL,
@@ -4071,9 +4071,9 @@ class appDevDebugProjectContainer extends Container
             'assetic.variables' => array(
 
             ),
-            'assetic.java.bin' => 'C:\\WINDOWS\\system32\\java.EXE',
-            'assetic.node.bin' => 'C:\\Archivos de programa\\nodejs\\\\node.EXE',
-            'assetic.ruby.bin' => 'C:\\Ruby193\\bin\\ruby.EXE',
+            'assetic.java.bin' => 'c:\\WINDOWS\\system32\\java.EXE',
+            'assetic.node.bin' => 'c:\\Archivos de programa\\nodejs\\\\node.EXE',
+            'assetic.ruby.bin' => 'c:\\Ruby193\\bin\\ruby.EXE',
             'assetic.sass.bin' => '/usr/bin/sass',
             'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
             'assetic.twig_extension.functions' => array(
