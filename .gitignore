@@ -7,5 +7,4 @@
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 /build/
-/bin/
 !composer.json
