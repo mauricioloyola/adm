@@ -1,0 +1,44 @@
+<<<<<<< HEAD
+=======
+# Cache and logs (Symfony2)
+>>>>>>> 3453b0c79754ff94fd44abcc55b42490dfffe8b0
+/app/cache/*
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+<<<<<<< HEAD
+=======
+
+# Cache and logs (Symfony3)
+/var/cache/*
+/var/logs/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+
+# Parameters
+/app/config/parameters.yml
+/app/config/parameters.ini
+
+# Managed by Composer
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/symfony_requirements
+/vendor/
+
+# Assets and user uploads
+/web/bundles/
+/web/uploads/
+
+# PHPUnit
+/app/phpunit.xml
+/phpunit.xml
+
+# Composer PHAR
+/composer.phar
+>>>>>>> 3453b0c79754ff94fd44abcc55b42490dfffe8b0
+
+# Capifony
+/app/config/deploy.rb
+Capfile
